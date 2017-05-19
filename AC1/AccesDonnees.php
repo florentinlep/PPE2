@@ -189,4 +189,23 @@
 			return false;
 		}
 	}
+	
+	function connexionExploitant($nomUtilisateur, $motDePasse) {
+		$requetLOG = "	SELECT *
+		FROM EXPLOITANT
+		WHERE exploitantLOG='$nomUtilisateur'
+		AND exploitantMDP='$motDePasse';";
+	
+		$resultLOG = executeSQL($requetLOG);
+	
+		$tableauLOG = mysql_fetch_array($resultLOG, MYSQL_BOTH);
+	
+		if (isset($tableauLOG[0])) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+
 ?>
