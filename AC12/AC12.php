@@ -7,6 +7,7 @@
 		<title>AC12</title>
 	</head>
 	
+	
 	<body>
 		<form id="formulaire" action="./AC12traitement.php" method="get">
 
