@@ -36,7 +36,7 @@
 			<br/>
 
 			<div class="bouttonAR">
-				<button onclick=document.location.href="../AC12/AC12.php">
+				<button onclick=document.location.href="./nouvelleTournee.php">
 					<img class="bouttonAJO" style="width: 17px;" src="./images/plus.PNG" alt="L'image n'est pas disponible..."/>
 					<span class="bouttonAJO">
 						<b>Ajouter</b>

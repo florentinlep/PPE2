@@ -140,3 +140,14 @@ table {
 .bouttonTAG:hover {
 	cursor: default;
 }
+
+.tableauGauche {
+	float: left;
+	border-right: 1px solid #9bbb58;
+	width: 700px;
+}
+
+.tableauDroite {
+	float: right;
+	width: 500px;
+}

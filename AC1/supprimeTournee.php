@@ -1,17 +1,17 @@
 <?php
 	include "connexionBDD.php";
 
-	$tourneeID = $_GET['tourneeID'];
+	$TRNNUM = $_GET['TRNNUM'];
 
 	$requetSUE = "	DELETE
 					FROM ETAPE
-					WHERE tourneeID = $tourneeID;";
+					WHERE TRNNUM = $TRNNUM;";
 
 	$resultSUE = mysql_query($requetSUE);
 	
 	$requetSUT = "	DELETE
 					FROM TOURNEE
-					WHERE tourneeID = $tourneeID;";
+					WHERE TRNNUM = $TRNNUM;";
 	
 	$resultSUT = mysql_query($requetSUT);
 	
