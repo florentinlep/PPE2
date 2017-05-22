@@ -156,12 +156,9 @@
 						$sql = "SELECT LIEUID 
 								FROM ETAPE 
 								WHERE TRNNUM = $TRNNUM;";
-
 						$result = executeSQL($sql);
-
 						$VILID = mysql_fetch_row($result);
-						
-						
+						echo $VILID[0] ."-----";
 						//cherche la ville avec l'id
 						$sql = "SELECT LIEUID, LIEUNOM 
 								FROM LIEU 
