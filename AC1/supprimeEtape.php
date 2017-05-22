@@ -23,4 +23,5 @@
 			message=<span class=\"negatif\">La suppression n a pas aboutit, contactez un administrateur</span>'>
 		";
 	}
+	
 ?>

@@ -142,7 +142,7 @@
 						</td>
 					</tr>
 				</table>
-
+			</form>
 				<table class="tableauDroite">
 					<tr>
 						<td></td>
@@ -215,7 +215,7 @@
 						</td>
 					</tr>
 				</table>
-			</form>
+			
 
 			<table>
 				<tr>
