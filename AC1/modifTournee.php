@@ -143,71 +143,76 @@
 					</tr>
 				</table>
 			</form>
-				<table class="tableauDroite">
-					<tr>
-						<td></td>
-						<td>Etapes</td>
-						<td></td>
-						<td></td>
-					</tr>
 
-					<?php							
-						//selection id de la ville 
-						$sql = "SELECT lieu.lieuid, lieu.LIEUNOM
-								FROM ETAPE, lieu
-								WHERE ETAPE.lieuid = lieu.lieuid
-								AND TRNNUM = $TRNNUM;";
-						
-						$result = executeSQL($sql);
-						$cpt = compteSQL($sql);
-						
-						if ($cpt>0) {	
-							while ($row = mysql_fetch_array($result1, MYSQL_BOTH)) {
-								echo "
-									<tr>
-										<td>$row[1]</td>
-										<td>$row[2]</td>
-										<td>
-											<form action=\"supprimeEtape.php\" method=\"get\">
-												<input name=\"TRNNUM\" type=\"hidden\" value=\"$TRNNUM\"/>
-												<input name=\"ETPID\" type=\"hidden\" value=\"$row[1]\"/>
-												<input class=\"bouttonSUP\" type=\"image\" src=\"./images/croix.PNG\"/>
-											</form>
-										</td>
-										<td>
-											<form action=\"modifEtape.php\" method=\"get\">
-												<input name=\"TRNNUM\" type=\"hidden\" value=\"$TRNNUM\"/>
-												<input name=\"ETPID\" type=\"hidden\" value=\"$row[1]\"/>
-												<input class=\"bouttonMOD\" type=\"image\" src=\"./images/modifier.PNG\"/>
-											</form> 
-										</td>
-									</tr>
-								";
-									
-							}					
-						} else {
-							echo "<p>Aucune etape en cours...</p>";
-						}         
-		    		?>
+			<table class="tableauDroite">
+				<tr>
+					<td></td>
+					<td>Etapes</td>
+					<td></td>
+					<td></td>
+				</tr>
 
-		    		<tr>
-		    			<td>
-		    				<br/>
-		    			</td>
-		    		</tr>
+				<?php							
+					//selection id de la ville 
+					$sql = "SELECT LIEUID 
+							FROM ETAPE 
+							WHERE TRNNUM = $TRNNUM;";
 
-					<tr>
-						<td></td>
-						<td></td>
-						<td colspan="2">
-							<form action="nouvelleEtape.php" method="GET">
-								<input type="hidden" name="TRNNUM" value=<?php echo "$TRNNUM"; ?>>
-								<input type="submit" name="ajouter" value="Ajouter" style="width: 100px;">
-							</form>
-						</td>
-					</tr>
-				</table>
-			
+					$result = executeSQL($sql);
+
+					if ($result) {
+						while ($row = mysql_fetch_array($result1, MYSQL_BOTH)) {
+							echo "
+								<tr>
+									<td>$row[1]</td>
+									<td>$row[2]</td>
+									<td>
+										<form action=\"supprimeEtape.php\" method=\"get\">
+											<input name=\"TRNNUM\" type=\"hidden\" value=\"$TRNNUM\"/>
+											<input name=\"ETPID\" type=\"hidden\" value=\"$row[1]\"/>
+											<input class=\"bouttonSUP\" type=\"image\" src=\"./images/croix.PNG\"/>
+										</form>
+									</td>
+									<td>
+										<form action=\"modifEtape.php\" method=\"get\">
+											<input name=\"TRNNUM\" type=\"hidden\" value=\"$TRNNUM\"/>
+											<input name=\"ETPID\" type=\"hidden\" value=\"$row[1]\"/>
+											<input class=\"bouttonMOD\" type=\"image\" src=\"./images/modifier.PNG\"/>
+										</form> 
+									</td>
+								</tr>
+							";
+								
+						}					
+					} else {
+						echo "
+							<tr>
+								<td style=\"color: #9bbb58;\">></td>
+								<td style=\"color: #9bbb58;\">Pas d'étape dans la tournée</td>
+								<td></td>
+								<td></td>
+							</tr>
+						";
+					}         
+	    		?>
+
+	    		<tr>
+	    			<td>
+	    				<br/>
+	    			</td>
+	    		</tr>
+
+				<tr>
+					<td></td>
+					<td></td>
+					<td colspan="2">
+						<form action="nouvelleEtape.php" method="GET">
+							<input type="hidden" name="TRNNUM" value=<?php echo "$TRNNUM"; ?>>
+							<input type="submit" name="ajouter" value="Ajouter" style="width: 100px;">
+						</form>
+					</td>
+				</tr>
+			</table>
 
 			<table>
 				<tr>
