@@ -178,14 +178,14 @@
 										<td>
 											<form action=\"supprimeEtape.php\" method=\"get\">
 												<input name=\"TRNNUM\" type=\"hidden\" value=\"$TRNNUM\"/>
-												<input name=\"ETPID\" type=\"hidden\" value=\"$row[2]\"/>
+												<input name=\"ETPID\" type=\"hidden\" value=\"$row[1]\"/>
 												<input class=\"bouttonSUP\" type=\"image\" src=\"./images/croix.PNG\"/>
 											</form>
 										</td>
 										<td>
 											<form action=\"modifEtape.php\" method=\"get\">
 												<input name=\"TRNNUM\" type=\"hidden\" value=\"$TRNNUM\"/>
-												<input name=\"ETPID\" type=\"hidden\" value=\"$row[2]\"/>
+												<input name=\"ETPID\" type=\"hidden\" value=\"$row[1]\"/>
 												<input class=\"bouttonMOD\" type=\"image\" src=\"./images/modifier.PNG\"/>
 											</form> 
 										</td>

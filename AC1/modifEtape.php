@@ -28,7 +28,8 @@
 				<?php
 					$requetETAPE = "SELECT LIEUID, ETPHREDEBUT, ETPHREFIN, ETPCOMMENTAIRE
 									FROM ETAPE
-									WHERE ETPID = $ETPID;";
+									WHERE TRNNUM = $TRNNUM
+									AND ETPID = $ETPID;";
 
 					$resultETAPE = mysql_query($requetETAPE);
 
