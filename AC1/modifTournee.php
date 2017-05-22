@@ -153,17 +153,12 @@
 
 					<?php							
 						//selection id de la ville 
-						$sql = "SELECT LIEUID 
-								FROM ETAPE 
-								WHERE TRNNUM = $TRNNUM;";
+						$sql = "SELECT lieu.lieuid, lieu.LIEUNOM
+								FROM ETAPE, lieu
+								WHERE ETAPE.lieuid = lieu.lieuid
+								AND TRNNUM = $TRNNUM;";
+						
 						$result = executeSQL($sql);
-						$VILID = mysql_fetch_row($result);
-						echo $VILID[0] ."-----";
-						//cherche la ville avec l'id
-						$sql = "SELECT LIEUID, LIEUNOM 
-								FROM LIEU 
-								WHERE LIEUID = $VILID[0];";
-
 						$cpt = compteSQL($sql);
 						
 						if ($cpt>0) {	
@@ -191,7 +186,7 @@
 									
 							}					
 						} else {
-							echo "<p>Aucune etape en cour...</p>";
+							echo "<p>Aucune etape en cours...</p>";
 						}         
 		    		?>
 
