@@ -1,34 +1,36 @@
 <?php
 	include "connexionBDD.php";
 
-	$dateBRUT = date_create($_GET['dateTournee']);
-
-	$date = date_format($dateBRUT, 'Y-m-d');
 	$TRNNUM = str_replace("/", "", $_GET['TRNNUM']);
-	$chauffeur = $_GET['chauffeur'];
-	$vehicule = $_GET['vehicule'];
-	$commentaire = $_GET['commentaire'];
+	$ETPID = $_GET['ETPID'];
+	$LIEUID = $_GET['LIEUID'];
+	$ETPHREDEBUT = $_GET['ETPHREDEBUT'];
+	$ETPHREFIN = $_GET['ETPHREFIN'];
+	$ETPCOMMENTAIRE = $_GET['ETPCOMMENTAIRE'];
 
-	if ($date!=='' AND $chauffeur!=='' AND $vehicule!=='') {
-		$requetTCRE = " UPDATE TOURNEE
-						SET CHFID = \"$chauffeur\",
-							VEHIMMAT = \"$vehicule\",
-							TRNCOMMENTAIRE = \"$commentaire\",
-							TRNDTE = \"$date\"
-						WHERE TRNNUM = $TRNNUM;";
+	if ($ETPHREDEBUT!=='' AND $ETPHREFIN!=='') {
+		$requetEEDI = " UPDATE ETAPE
+						SET LIEUID = \"$LIEUID\",
+							ETPHREDEBUT = \"$ETPHREDEBUT\",
+							ETPHREFIN = \"$ETPHREFIN\",
+							ETPCOMMENTAIRE = \"$ETPCOMMENTAIRE\"
+						WHERE TRNNUM = '$TRNNUM'
+						AND ETPID = '$ETPID';";
 
-		$resultTCRE = executeSQL($requetTCRE);
+		$resultEEDI = executeSQL($requetEEDI);
 
-		if ($resultTCRE) {
+		if ($resultEEDI) {
 			echo "
-				<meta http-equiv='refresh' content='0;url=AC11.php?'>
+				<meta http-equiv='refresh' content='0;url=modifTournee.php?
+				TRNNUM=$TRNNUM&
+				message=<span class=\"positif\">Modification effectuée</span>'>
 			";
 		}
 	} else {
 		echo "	
 			<meta http-equiv='refresh' content='0;url=modifTournee.php?
 			TRNNUM=$TRNNUM&
-			message=<span class=\"negatif\">Les champs DATE, CHAUFFEUR et VEHICULE sont obligatoires</span>'>
+			message=<span class=\"negatif\">Les champs DEBUT et FIN sont obligatoires</span>'>
 		";
 	}
 ?>

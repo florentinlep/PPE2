@@ -85,7 +85,7 @@
 					<tr>
 						<td>Commentaire</td>
 						<td>
-							<textarea name="ETPCOMMENTAIRE" cols="16" rows="5" style="color: #9bbb58;"><?php $tableauETAPE[3] ?></textarea>
+							<textarea name="ETPCOMMENTAIRE" cols="16" rows="5" style="color: #9bbb58;"><?php echo "$tableauETAPE[3]" ?></textarea>
 						</td>
 					</tr>
 
